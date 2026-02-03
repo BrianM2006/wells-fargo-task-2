@@ -1,86 +1,61 @@
-package com.wellsfargo.counselor.entity;
+package com.wellsfargo.counselor.entity; // Declares the package for the Advisor entity
 
+import javax.persistence.Entity; // Marks this class as a JPA entity
+import javax.persistence.Id; // Identifies the primary key
+import javax.persistence.GeneratedValue; // Enables automatic ID generation
+import javax.persistence.Column; // Maps fields to database columns
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
-@Entity
+@Entity // Specifies that this class is a database entity
 public class Advisor {
 
-    @Id
-    @GeneratedValue()
-    private long advisorId;
+    @Id // Marks advisorId as the primary key
+    @GeneratedValue // Auto-generates the advisorId value
+    private Long advisorId; // Stores the advisor's unique ID
 
-    @Column(nullable = false)
-    private String firstName;
+    @Column(nullable = false) // Maps firstName column and disallows nulls
+    private String firstName; // Stores advisor first name
 
-    @Column(nullable = false)
-    private String lastName;
+    @Column(nullable = false) // Maps lastName column and disallows nulls
+    private String lastName; // Stores advisor last name
 
-    @Column(nullable = false)
-    private String address;
+    @Column(nullable = false) // Maps address column and disallows nulls
+    private String address; // Stores advisor address
 
-    @Column(nullable = false)
-    private String phone;
+    @Column(nullable = false) // Maps phone column and disallows nulls
+    private String phone; // Stores advisor phone number
 
-    @Column(nullable = false)
-    private String email;
+    @Column(nullable = false) // Maps email column and disallows nulls
+    private String email; // Stores advisor email address
 
-    protected Advisor() {
+    protected Advisor() {} // Required no-arg constructor for JPA
 
+    public Advisor(String firstName, String lastName, String address, String phone, String email) { // Full constructor
+        this.firstName = firstName; // Initializes firstName
+        this.lastName = lastName; // Initializes lastName
+        this.address = address; // Initializes address
+        this.phone = phone; // Initializes phone
+        this.email = email; // Initializes email
     }
 
-    public Advisor(String firstName, String lastName, String address, String phone, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.phone = phone;
-        this.email = email;
-    }
+    public Long getAdvisorId() { return advisorId; } // Returns advisor ID
 
-    public Long getAdvisorId() {
-        return advisorId;
-    }
+    public String getFirstName() { return firstName; } // Returns first name
 
-    public String getFirstName() {
-        return firstName;
-    }
+    public void setFirstName(String firstName) { this.firstName = firstName; } // Sets first name
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    public String getLastName() { return lastName; } // Returns last name
 
-    public String getLastName() {
-        return lastName;
-    }
+    public void setLastName(String lastName) { this.lastName = lastName; } // Sets last name
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    public String getAddress() { return address; } // Returns address
 
-    public String getAddress() {
-        return address;
-    }
+    public void setAddress(String address) { this.address = address; } // Sets address
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    public String getPhone() { return phone; } // Returns phone number
 
-    public String getPhone() {
-        return phone;
-    }
+    public void setPhone(String phone) { this.phone = phone; } // Sets phone number
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    public String getEmail() { return email; } // Returns email
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setEmail(String email) { this.email = email; } // Sets email
 }
